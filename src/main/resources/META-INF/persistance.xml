@@ -1,0 +1,4 @@
+<persistence-unit name="Your_Persistence_Unit_Name" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <!-- Остальные настройки -->
+</persistence-unit>
