@@ -1,54 +1,62 @@
-
-.auth-container {
-  background-color: #3498db;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.auth-container:hover {
-  transform: scale(1.05); /* Enlarge the form on hover */
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid #3498db; /* Increase the border width */
+  padding: 40px; /* Increase padding for content inside the border */
+  background-color: #f2f2f2;
+  width: 400px; /* Increase the width of the container */
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 8%;
+  border-radius: 15px; /* Increase border radius for rounded corners */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Add a shadow */
 }
 
 h2 {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px; /* Increase margin at the bottom of the heading */
+  font-size: 24px; /* Increase font size of the heading */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Make form take full width inside the container */
 }
 
 input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  margin: 10px 0;
+  padding: 15px; /* Increase padding for input fields */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Increase border radius for input fields */
+  width: 100%; /* Make input fields take full width */
 }
 
-button {
-  background-color: #e74c3c;
+.submit-button {
+  background-color: #3498db;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 0; /* Increase padding for the button */
   border: none;
-  border-radius: 4px;
+  border-radius: 8px; /* Increase border radius for the button */
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
+  transition: background-color 0.3s;
+  width: 100%; /* Make button take full width */
+  font-size: 18px; /* Increase font size of the button */
 }
 
-button:hover {
-  background-color: #c0392b;
+.submit-button:hover {
+  background-color: #2b7bbd;
 }
 
-p {
-  color: #333;
-  font-size: 14px;
-  margin: 0;
-}
-
-.error-message {
-  color: red;
+.toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3498db;
+  text-decoration: underline;
+  padding: 0;
+  margin: 15px 0; /* Increase margin around the button */
+  font-size: 16px; /* Increase font size of the button */
 }
