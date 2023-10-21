@@ -1,0 +1,11 @@
+/* styles.css */
+body {
+    background-color: darkgrey;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* Add other styles or overrides for your content as needed */
+  }
