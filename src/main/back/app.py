@@ -18,6 +18,20 @@ class Tournaments(db.Model):
     status = db.Column(db.String(100))
     teams = db.Column(db.String(100))
 
+    def status_class(self):
+        return get_status_class(self.status)
+
+def get_status_class(status):
+    if status == 'OPENED':
+        return 'badge-primary'
+    elif status == 'ACTIVE':
+        return 'badge-success'
+    elif status == 'FINISHED':
+        return 'badge-danger'
+    else:
+        return 'badge-secondary'
+
+
 @app.route('/')
 def index():
     session = Session()
@@ -39,6 +53,13 @@ def refresh_api():
         })
 
     return jsonify(updated_tournaments_list)
+
+@app.route('/tournament/<int:tournament_id>')
+def tournament_page(tournament_id):
+    session = Session()
+    tournament = session.query(Tournaments).filter_by(id=tournament_id).first()
+    session.close()
+    return render_template('tournament_page.html', tournament=tournament)
 
 
 

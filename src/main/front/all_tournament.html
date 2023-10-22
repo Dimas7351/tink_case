@@ -22,18 +22,19 @@
             border-radius: 10px;
             margin-top: 20px;
         } 
+
     </style>
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center">LIST OF TOURNAMENT</h1>
+    <h1 class="text-center">LIST OF TOURNAMENTS</h1>
     <button id="refreshButton" class="btn btn-success mr-3 mb-3">Refresh</button>
 
     <ul id="tournamentsList" class="list-group">
         {% for tournament in tournaments %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ tournament.namem }}
-                <span class="badge badge-secondary badge-pill">{{ tournament.status }}</span>
+                <a href="{{ url_for('tournament_page', tournament_id=tournament.id) }}">{{ tournament.namem }}</a>
+                <span class="badge {{ tournament.status_class() }} badge-pill status-badge">{{ tournament.status }}</span>
             </li>
         {% endfor %}
     </ul>
@@ -47,41 +48,12 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
 <script>
-    // Обработчик события для кнопки "Refresh"
     document.getElementById('refreshButton').addEventListener('click', function() {
-        // Отправьте запрос к API для обновления списка турниров
-        fetch("/api/refresh")
-            .then(response => response.json())
-            .then(data => {
-                // Обновите список турниров на странице с полученными данными
-                updateTournamentsList(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        // Перезагрузите текущую страницу
+        location.reload();
     });
-    
-    // Вспомогательная функция для обновления списка турниров
-    function updateTournamentsList(data) {
-        // Очистить текущий список турниров
-        var tournamentsList = document.getElementById('tournamentsList');
-        while (tournamentsList.firstChild) {
-            tournamentsList.removeChild(tournamentsList.firstChild);
-        }
-
-        // Обновить список турниров с новыми данными
-        data.forEach(function(tournament) {
-            var listItem = document.createElement('li');
-            listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-            listItem.innerHTML = tournament.namem + '<span class="badge badge-secondary badge-pill">' + tournament.status + '</span>';
-            tournamentsList.appendChild(listItem);
-        });
-    }
 </script>
 
-
-    
 </body>
 </html>

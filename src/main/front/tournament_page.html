@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Турнир</title>
+    <title>{{ tournament.namem }} Tournament</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background: url('./images/photo-1512206658062-6ade882333f5.jpeg') no-repeat center center fixed;
@@ -25,43 +25,19 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Название Турнира</h1>
-        <p>Статус: OPENED</p>
-    </header>
+<div class="container">
+    <h1 class="text-center">Tournament</h1>
+    <p> Name: {{ tournament.namem }}</h2>
+    <p>Status: <span class="badge {{ tournament.status_class() }} badge-pill status-badge">{{ tournament.status }}</span></p>
+    <p>Teams: {{tournament.teams}}</p>
+    
+    <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Back to List</a>
+</div>
 
-    <main>
-        <section id="team-list">
-            <h2>Список команд в турнире:</h2>
-            <ul>
-                <li>Команда 1</li>
-                <li>Команда 2</li>
-                <!-- Добавьте остальные команды из базы данных -->
-            </ul>
-        </section>
+<!-- Подключаем Bootstrap JavaScript (jQuery и Popper.js должны быть подключены перед этим) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <section id="join-form">
-            <h2>Присоединиться к турниру</h2>
-            <form action="submit_form.php" method="post">
-                <label for="team-name">Название вашей команды:</label>
-                <input type="text" id="team-name" name="team-name" required>
-                <button type="submit">Присоединиться</button>
-            </form>
-        </section>
-
-        <section id="tournament-table">
-            <h2>Турнирная таблица</h2>
-            <!-- Добавьте таблицу с результатами турнира -->
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; Год создания</p>
-    </footer>
-
-    <script>
-        // JavaScript для интерактивности
-        // Добавьте свой JavaScript здесь
-    </script>
 </body>
 </html>
