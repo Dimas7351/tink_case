@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
@@ -11,7 +12,7 @@ def create_app():
     CORS(app)
     cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
     app.config['SECRET_KEY'] = 'secret-key'
-
+    jwt = JWTManager(app)
     username = "postgres"
     password = "password"
     dbname = "tinkoff"
