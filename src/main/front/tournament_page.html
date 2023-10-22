@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турнир</title>
+    <style>
+        body {
+            background: url('./images/photo-1512206658062-6ade882333f5.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7); 
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Название Турнира</h1>
+        <p>Статус: OPENED</p>
+    </header>
+
+    <main>
+        <section id="team-list">
+            <h2>Список команд в турнире:</h2>
+            <ul>
+                <li>Команда 1</li>
+                <li>Команда 2</li>
+                <!-- Добавьте остальные команды из базы данных -->
+            </ul>
+        </section>
+
+        <section id="join-form">
+            <h2>Присоединиться к турниру</h2>
+            <form action="submit_form.php" method="post">
+                <label for="team-name">Название вашей команды:</label>
+                <input type="text" id="team-name" name="team-name" required>
+                <button type="submit">Присоединиться</button>
+            </form>
+        </section>
+
+        <section id="tournament-table">
+            <h2>Турнирная таблица</h2>
+            <!-- Добавьте таблицу с результатами турнира -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Год создания</p>
+    </footer>
+
+    <script>
+        // JavaScript для интерактивности
+        // Добавьте свой JavaScript здесь
+    </script>
+</body>
+</html>
