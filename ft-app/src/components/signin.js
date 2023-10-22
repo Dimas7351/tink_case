@@ -6,29 +6,26 @@ function SignIn() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
 
-  const handleSubmit = async () => {
-    if (isSignIn) {
+  const handleSubmit = () => {
       // Handle sign-in logic here
-      const response = await fetch('/signin', {
+     fetch('http://localhost:5000/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username: email, password }),
-      });
-
-      if (response.status === 200) {
+        body: JSON.stringify({ email, password }),
+      })
+      .then((response) => {
+      if (response.status === 201) {
         // Sign-in was successful
         history.push('/personal');
       } else {
-        // Handle sign-in error, e.g., incorrect credentials
-      }
-    } else {
-      // Navigate to the sign-up page
-      history.push('/signup');
-    }
+        setErrorMessage("Имя пользователя или пароль неверны"); // Handle sign-in error, e.g., incorrect credentials
+      }})
+    
   };
 
   return (
@@ -37,7 +34,7 @@ function SignIn() {
       <form>
         <input
           type="text"
-          placeholder="Email"
+          placeholder="Username"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -47,10 +44,12 @@ function SignIn() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="submit-button" onClick={handleSubmit}>
+        <button type = "button" className="submit-button" onClick={handleSubmit}>
           {isSignIn ? 'Sign In' : 'Sign Up'}
         </button>
       </form>
+      {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Выводим сообщение об ошибке, если оно есть */}
+      <button className="toggle-button" onClick={() => history.push('/signin')}></button>
       <button className="toggle-button" onClick={() => history.push('/signup')}>
   Don’t have an account? Sign Up
       </button>

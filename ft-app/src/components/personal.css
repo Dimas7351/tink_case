@@ -1,0 +1,42 @@
+.personal-account-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+  }
+  
+  h2 {
+    font-size: 36px;
+    color: #007BFF;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .user-icon {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #3498db;
+  }
+  
+  .id-icon {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #3498db;
+  }
+  
+  .tournaments-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .tournaments-link:hover {
+    text-decoration: underline;
+  }
