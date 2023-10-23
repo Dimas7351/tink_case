@@ -1,55 +1,69 @@
+/* Main container styles */
 .registration-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 6px solid #3498db; /* Increase the border width */
-  padding: 40px; /* Increase padding for content inside the border */
+  border: 6px solid #3498db;
+  padding: 30px;
   background-color: #f2f2f2;
-  width: 400px; /* Increase the width of the container */
-  margin: 0 auto; /* Center horizontally */
-  margin-top: 8%;
-  border-radius: 15px; /* Increase border radius for rounded corners */
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Add a shadow */
+  width: 450px;
+  height: 450px; /* Reduced height for better proportions */
+  margin: 0 auto;
+  margin-top: 8vh; /* Vertical alignment with respect to the viewport */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  /* Slide-in animation */
+  animation: slideIn 0.5s ease-in-out;
 }
 
+
+
+/* Heading styles */
 h2 {
   text-align: center;
-  margin-bottom: 20px; /* Increase margin at the bottom of the heading */
-  font-size: 24px; /* Increase font size of the heading */
+  margin-bottom: 20px;
+  font-size: 28px;
 }
 
+/* Form styles */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Make form take full width inside the container */
+  width: 100%;
 }
 
+/* Input field styles */
 input {
   margin: 10px 0;
-  padding: 15px; /* Increase padding for input fields */
-  border: 1px solid #ccc;
-  border-radius: 8px; /* Increase border radius for input fields */
-  width: 100%; /* Make input fields take full width */
+  padding: 12px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 16px;
 }
 
+/* Submit button styles */
 .submit-button {
   background-color: #3498db;
   color: white;
-  padding: 15px 0; /* Increase padding for the button */
+  padding: 15px 0;
   border: none;
-  border-radius: 8px; /* Increase border radius for the button */
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%; /* Make button take full width */
-  font-size: 18px; /* Increase font size of the button */
+  width: 100%;
+  font-size: 18px;
 }
 
+/* Hover effect with scaling */
 .submit-button:hover {
   background-color: #2b7bbd;
+  transform: scale(1.05);
 }
 
+/* Toggle button styles */
 .toggle-button {
   background: none;
   border: none;
@@ -57,6 +71,31 @@ input {
   color: #3498db;
   text-decoration: underline;
   padding: 0;
-  margin: 15px 0; /* Increase margin around the button */
-  font-size: 16px; /* Increase font size of the button */
+  margin: 15px 0;
+  font-size: 16px;
 }
+
+/* Error message styles */
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+/* Shaking animation on error (Add this class when there's an error) */
+.registration-container.error-shake {
+  animation: shake 0.5s ease infinite;
+}
+
+/* Shake animation keyframes */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+

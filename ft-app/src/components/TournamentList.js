@@ -1,5 +1,6 @@
 // TournamentList.js
 import React, { useState, useEffect } from 'react';
+import Navbar1 from './navbar1';
 
 function TournamentList() {
   const [tournaments, setTournaments] = useState([]);
@@ -11,6 +12,8 @@ function TournamentList() {
 
   return (
     <div>
+      <div><Navbar1 />
+
       <h2>Tournament List</h2>
       {tournaments.map((tournament) => (
         <div key={tournament.id}>
@@ -20,6 +23,7 @@ function TournamentList() {
         </div>
       ))}
       <a href="/personal">Go to Personal Account</a>
+    </div>
     </div>
   );
 }

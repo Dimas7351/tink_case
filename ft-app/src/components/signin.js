@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './reg.css';
+import Navbar1 from './navbar1';
 
 function SignIn() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -9,26 +10,42 @@ function SignIn() {
   const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
 
+
   const handleSubmit = () => {
-      // Handle sign-in logic here
-     fetch('http://localhost:5000/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      })
-      .then((response) => {
+    fetch('http://localhost:5000/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+    .then((response) => {
       if (response.status === 201) {
-        // Sign-in was successful
-        history.push('/personal');
+        return response.json();
       } else {
-        setErrorMessage("Имя пользователя или пароль неверны"); // Handle sign-in error, e.g., incorrect credentials
-      }})
-    
+        throw new Error('Authentication failed');
+      }
+    })
+    .then((data) => {
+      localStorage.setItem('access_token', data.access_token);
+      localStorage.setItem('user_id', data.user_id);
+      const accessToken = localStorage.getItem('access_token');
+      const userId = localStorage.getItem('user_id');
+      console.log(accessToken);
+      console.log(userId);
+      history.push('/personal');
+    })
+    .catch((error) => {
+      setPassword('');
+      setErrorMessage("Имя пользователя или пароль неверны");
+      console.error(error);
+    });
   };
+  
 
   return (
+    <div>
+      <Navbar1 />
     <div className="registration-container">
       <h2>{isSignIn ? 'Sign In' : 'Sign Up'}</h2>
       <form>
@@ -53,6 +70,7 @@ function SignIn() {
       <button className="toggle-button" onClick={() => history.push('/signup')}>
   Don’t have an account? Sign Up
       </button>
+    </div>
     </div>
   );
 }

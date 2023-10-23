@@ -1,11 +1,33 @@
-/* styles.css */
-body {
-    background-color: rgb(61, 61, 61);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    /* Add other styles or overrides for your content as needed */
+  body {
+    overflow: hidden;
   }
+  .App{
+    width: 100%;
+    height: 100vh;
+  }
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+

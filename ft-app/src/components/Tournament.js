@@ -1,7 +1,7 @@
 // Tournament.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import Navbar1 from './navbar1';
 function Tournament() {
   const [tournament, setTournament] = useState(null);
   const [selectedTeam, setSelectedTeam] = useState('');
@@ -23,6 +23,9 @@ function Tournament() {
 
   return (
     <div>
+        <div>
+            <Navbar1 />
+
       {tournament ? (
         <div>
           <h2>Tournament: {tournament.name}</h2>
@@ -63,6 +66,7 @@ function Tournament() {
         <p>Loading tournament information...</p>
       )}
       <Link to="/personal">Back to Personal Account</Link>
+    </div>
     </div>
   );
 }
